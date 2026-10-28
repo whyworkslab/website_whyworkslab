@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#3b0b78" />
+    <meta
+      name="description"
+      content="WhyWorksLab is a discovery-first robotics academy where learners experience, predict, test and build before the technical explanation arrives. In-centre and online classes are available."
+    />
+    <title>WhyWorksLab Robotics Academy | Experience It. Discover Why.</title>
+    <link rel="icon" href="assets/brand-mark.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="announcement" role="note">
+      <span class="announcement__pulse" aria-hidden="true"></span>
+      In-centre and online robotics classes now available
+    </div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="WhyWorksLab home">
+        <img src="assets/whyworkslab-logo.png" alt="WhyWorksLab Robotics & Science" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation" data-nav>
+        <a href="#teaching-demo">How we teach</a>
+        <a href="#pathway">Pathway</a>
+        <a href="#safety">Safety</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="button button--small header-cta" href="#level-finder">Where do I start?</a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button>
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero__glow hero__glow--one" aria-hidden="true"></div>
+        <div class="hero__glow hero__glow--two" aria-hidden="true"></div>
+        <div class="hero__content">
+          <p class="eyebrow"><span>Experience first</span><i></i><span>Explanation after</span><i></i><span>Evidence always</span></p>
+          <h1>First they experience it. <em>Then they discover why it works.</em></h1>
+          <p class="hero__lede">
+            Every class begins with a real movement, puzzle, failure or surprising result. Learners predict, test, build and debug before the technical explanation arrives. That same habit grows from first rover experiments to supervised humanoid engineering.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#level-finder">
+              Find the right starting point
+              <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11m-4-4 4 4-4 4" /></svg>
+            </a>
+            <a class="button button--ghost" href="#teaching-demo">Try how we teach</a>
+          </div>
+          <p class="hero__microcopy">No prior robotics or coding experience is required for Foundation. In-centre and online options are available.</p>
+        </div>
+
+        <figure class="hero-vision" aria-labelledby="vision-title">
+          <div class="hero-vision__media">
+            <img
+              src="assets/humanoid-learning-path.jpg"
+              width="1122"
+              height="1402"
+              fetchpriority="high"
+              alt="Illustration of a learner testing a rover while a compact tethered humanoid is tested under supervision in the background."
+            />
+          </div>
+          <figcaption class="hero-vision__caption">
+            <span>Illustrated curriculum vision</span>
+            <h2 id="vision-title">From first experiments to <strong>humanoid systems.</strong></h2>
+            <p>Advanced pathway &middot; readiness-gated</p>
+          </figcaption>
+        </figure>
+
+        <div class="proof-strip proof-strip--method" aria-label="How experience-first learning works">
+          <div><strong>01</strong><span>A real phenomenon<br />comes first</span></div>
+          <div><strong>02</strong><span>Predict before<br />the explanation</span></div>
+          <div><strong>03</strong><span>Change one variable<br />and test again</span></div>
+          <div><strong>04</strong><span>Explain with<br />visible evidence</span></div>
+        </div>
+      </section>
+
+      <section class="teaching-demo" id="teaching-demo" aria-labelledby="teaching-demo-title">
+        <div class="teaching-demo__inner">
+          <div class="teaching-demo__copy">
+            <p class="section-label">Experience it yourself</p>
+            <h2 id="teaching-demo-title">Predict. Change one thing. <span>Test what happens.</span></h2>
+            <p>This small experiment mirrors the beginning of a WhyWorksLab class: learners commit to an idea, change one variable and examine the evidence before receiving the explanation.</p>
+            <p class="teaching-demo__instruction"><b>Try it:</b> set the obstacle, choose a prediction, then test it.</p>
+          </div>
+
+          <div class="discovery-lab" aria-labelledby="lab-title" data-lab>
+            <div class="lab__topline">
+              <div>
+                <span class="lab__kicker">Try the way we teach</span>
+              <h2 id="lab-title">Will the robot keep the same route?</h2>
+              </div>
+              <span class="lab__live"><i></i> Live model</span>
+            </div>
+          <p class="lab__prompt">Change one thing, make a prediction and let the evidence answer.</p>
+          <div class="lab__arena" data-arena role="img" aria-label="The obstacle is on the route. The robot is waiting at the start.">
+              <div class="arena__grid" aria-hidden="true"></div>
+              <div class="arena__path" aria-hidden="true"></div>
+            <div class="obstacle" data-obstacle aria-hidden="true"><span></span></div>
+            <div class="lab-robot" data-robot aria-hidden="true">
+                <span class="lab-robot__antenna"></span>
+                <span class="lab-robot__eye lab-robot__eye--left"></span>
+                <span class="lab-robot__eye lab-robot__eye--right"></span>
+                <span class="lab-robot__wheel lab-robot__wheel--left"></span>
+                <span class="lab-robot__wheel lab-robot__wheel--right"></span>
+                <span class="lab-robot__signal"></span>
+              </div>
+              <span class="arena__start">START</span>
+              <span class="arena__goal">GOAL</span>
+            </div>
+          <div class="lab__setup">
+            <div>
+              <span>01 &middot; Change the setup</span>
+              <strong data-setup-label>Obstacle on the route</strong>
+            </div>
+            <button class="lab-button lab-button--secondary" type="button" data-move-obstacle aria-pressed="false">Move it off the route</button>
+          </div>
+          <fieldset class="lab__prediction">
+            <legend><span>02</span> What do you predict?</legend>
+            <div class="lab__prediction-options">
+              <button type="button" data-prediction="straight" aria-pressed="false">It goes straight</button>
+              <button type="button" data-prediction="detour" aria-pressed="false">It takes a detour</button>
+            </div>
+          </fieldset>
+          <button class="lab-button lab-button--run" type="button" data-run-test disabled>
+            <span>Test my prediction</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7 5 7 5-7 5V5Z" /></svg>
+          </button>
+          <div class="lab__result" data-lab-prompt role="status" aria-live="polite" aria-atomic="true">
+            <strong data-lab-result-title>Choose a prediction</strong>
+            <span data-lab-result-copy>Then test it against what the robot actually does.</span>
+            </div>
+          <div class="thinking-track" aria-label="Experiment stages">
+              <span data-step="sense"><b>01</b> Predict</span>
+              <i></i>
+              <span data-step="think"><b>02</b> Test</span>
+              <i></i>
+              <span data-step="act"><b>03</b> Explain</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="belief-section section" id="experience" aria-labelledby="belief-title">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="section-label">Inside a WhyWorks class</p>
+            <h2 id="belief-title">The answer is not given first. <span>The experience comes first.</span></h2>
+          </div>
+          <p>
+            Imagine a rover stopping before a box. Instead of explaining the sensor, the teacher moves the box and asks, “What will happen now?” The prediction becomes the beginning of the lesson.
+          </p>
+        </div>
+        <div class="belief-grid">
+          <article class="belief-card belief-card--purple">
+            <span class="belief-card__number">01</span>
+            <div class="belief-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M10 19h28M14 12h20v24H14zM19 27l4-5 6 8 3-3" /></svg>
+            </div>
+            <h3>A mystery appears</h3>
+            <p>Learners watch the robot, notice what changed and record what they think will happen next.</p>
+            <span class="belief-card__tag">Experience + predict</span>
+          </article>
+          <article class="belief-card belief-card--coral">
+            <span class="belief-card__number">02</span>
+            <div class="belief-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M12 34c5-1 8-5 9-10 2-9 8-12 15-12M14 12h8v8h-8zM30 29h8v8h-8z" /></svg>
+            </div>
+            <h3>One thing changes</h3>
+            <p>They move the obstacle, repeat the run and compare the result—changing one variable at a time.</p>
+            <span class="belief-card__tag">Investigate + measure</span>
+          </article>
+          <article class="belief-card belief-card--mint">
+            <span class="belief-card__number">03</span>
+            <div class="belief-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M12 30h8l4-16 5 22 4-12h5M10 39h28" /></svg>
+            </div>
+            <h3>The idea becomes theirs</h3>
+            <p>Only after the evidence do we name feedback, revise the rule and ask learners to explain why it now works.</p>
+            <span class="belief-card__tag">Name + build + explain</span>
+          </article>
+        </div>
+        <p class="experience-outcome"><span>Not “I followed the steps.”</span><strong>“I can explain what changed, why it changed and what I would test next.”</strong></p>
+      </section>
+
+      <section class="level-finder section" id="level-finder" aria-labelledby="finder-title">
+        <div class="finder-shell">
+          <div class="finder-copy">
+            <p class="section-label section-label--light">Two entry categories</p>
+            <h2 id="finder-title">Foundation or Advanced: where should this learner begin?</h2>
+            <p>Every learner enters through Foundation or an Advanced readiness review. Age helps us adapt the teaching; practical evidence decides Advanced eligibility.</p>
+            <div class="finder-note">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18" /></svg>
+              Applied, Competition and Humanoid are sequential phases inside Advanced—not separate admission options.
+            </div>
+          </div>
+          <div class="finder-tool" data-finder>
+            <p class="finder-tool__question">Which entry category should we discuss?</p>
+            <div class="finder-options finder-options--entry" role="radiogroup" aria-label="Course entry category">
+              <button type="button" role="radio" aria-checked="false" data-level="foundation">
+                <span class="option-age">Entry category 1</span>
+                <b>Foundation Robotics</b>
+                <small>Recommended for learners who are new to structured robotics.</small>
+                <span class="entry-card__rule">Sessions 1–36 · Classes 3–9 · age-adapted teaching</span>
+              </button>
+              <button type="button" role="radio" aria-checked="false" data-level="advanced">
+                <span class="option-age">Entry category 2 · eligibility required</span>
+                <b>Advanced Robotics</b>
+                <small>For learners who can demonstrate the required practical foundations.</small>
+                <span class="entry-card__rule">Sessions 37–120 · entry begins with a readiness review</span>
+              </button>
+            </div>
+            <div class="finder-result" data-finder-result hidden aria-live="polite">
+              <div class="finder-result__level" data-result-level>Entry 1</div>
+              <div>
+                <span data-result-eyebrow>Recommended starting point</span>
+                <h3 data-result-title>Begin with Foundation Robotics</h3>
+                <p data-result-copy></p>
+              </div>
+              <a href="#pathway" data-result-link>See category structure <span>→</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pathway section" id="pathway" aria-labelledby="pathway-title">
+        <div class="section-heading pathway-heading">
+          <p class="section-label">How the programme is organised</p>
+          <h2 id="pathway-title">Two entry categories. <span>One Advanced progression.</span></h2>
+          <p>A learner begins with Foundation or qualifies for Advanced. Inside Advanced, progression is sequential and decided through practical evidence and safety readiness.</p>
+          <div class="pathway-facts" aria-label="Course structure">
+            <span><strong>2</strong> entry categories</span><i></i><span><strong>120</strong> lessons</span><i></i><span><strong>26</strong> modules</span>
+          </div>
+        </div>
+
+        <div class="pathway-tabs pathway-tabs--categories" role="tablist" aria-label="Course entry categories" data-pathway-tabs>
+          <button role="tab" id="tab-foundation" aria-selected="true" aria-controls="panel-foundation" data-path="foundation">
+            <span class="tab-index">01</span><span><b>Foundation</b><small>Sessions 1–36 · open entry category</small></span>
+          </button>
+          <button role="tab" id="tab-advanced" aria-selected="false" aria-controls="panel-advanced" data-path="advanced">
+            <span class="tab-index">02</span><span><b>Advanced</b><small>Sessions 37–120 · eligibility required</small></span>
+          </button>
+        </div>
+
+        <div class="pathway-panels">
+          <article class="path-panel is-active" id="panel-foundation" role="tabpanel" aria-labelledby="tab-foundation" data-panel="foundation">
+            <div class="path-panel__copy">
+              <div class="path-panel__meta"><span>12 modules</span><span>36 × 60 min</span><span>Classes 3–9</span></div>
+              <p class="path-panel__kicker">Entry category 01 · Foundation Robotics</p>
+              <h3>Discover cause and effect with your hands.</h3>
+              <p>Explore mechanisms, circuits, sensors, algorithms, feedback and safe robot design through age-adapted experiments.</p>
+              <div class="outcome-box"><span>Visible outcome</span><strong>A tested robot or safe model, a repeatable trial log and a clear explanation of one failure.</strong></div>
+            </div>
+            <div class="path-panel__visual path-panel__visual--foundation" aria-hidden="true">
+              <div class="orbit orbit--one"></div><div class="orbit orbit--two"></div>
+              <div class="path-robot"><span></span><i></i><b></b></div>
+              <span class="visual-tag visual-tag--a">SENSE</span><span class="visual-tag visual-tag--b">BUILD</span><span class="visual-tag visual-tag--c">DEBUG</span>
+            </div>
+          </article>
+          <article class="path-panel path-panel--advanced" id="panel-advanced" role="tabpanel" aria-labelledby="tab-advanced" data-panel="advanced" hidden>
+            <div class="path-panel__copy">
+              <div class="path-panel__meta"><span>14 modules</span><span>84 × 90–120 min</span><span>Eligibility required</span></div>
+              <p class="path-panel__kicker">Entry category 02 · Advanced Robotics</p>
+              <h3>One admission. Three readiness-gated phases.</h3>
+              <p>Eligible learners enter one continuous Advanced programme. WhyWorksLab guides progression only after practical skills, project evidence and safety habits are demonstrated.</p>
+              <div class="outcome-box"><span>Admission rule</span><strong>Applied, Competition and Humanoid are internal phases—not separate admission options.</strong></div>
+            </div>
+            <div class="advanced-phase-list" aria-label="Internal Advanced programme phases">
+              <p class="advanced-phase-list__label">Internal Advanced sequence</p>
+              <ol>
+                <li class="advanced-phase advanced-phase--applied">
+                  <span class="advanced-phase__number">01</span>
+                  <div><b>Applied Engineering</b><small>Level 2 · Sessions 37–60 · Build reliable working systems.</small></div>
+                  <span class="advanced-phase__status">Internal phase</span>
+                </li>
+                <li class="advanced-phase advanced-phase--competition">
+                  <span class="advanced-phase__number">02</span>
+                  <div><b>Competition Engineering</b><small>Level 3 · Sessions 61–84 · Improve performance under constraints.</small></div>
+                  <span class="advanced-phase__status">Internal phase</span>
+                </li>
+                <li class="advanced-phase advanced-phase--humanoid">
+                  <span class="advanced-phase__number">03</span>
+                  <div><b>Humanoid Engineering</b><small>Level 4 · Sessions 85–120 · Integrate structure, sensing and control safely.</small></div>
+                  <span class="advanced-phase__status">Internal phase</span>
+                </li>
+              </ol>
+              <p class="advanced-phase-list__note">Progression is determined by WhyWorksLab through practical evidence and safety gates.</p>
+            </div>
+          </article>
+        </div>
+        <p class="pathway-disclaimer"><strong>Advanced is one continuous programme:</strong> its phases are not separately selectable. A 12–18 DOF small humanoid remains an advanced project target—not a guaranteed result of attendance.</p>
+      </section>
+
+      <section class="safety section" id="safety" aria-labelledby="safety-title">
+        <div class="safety-visual" aria-hidden="true">
+          <div class="safety-grid"></div>
+          <div class="shield">
+            <svg viewBox="0 0 120 140"><path d="M60 8 108 27v38c0 31-19 54-48 68C31 119 12 96 12 65V27L60 8Z" /><path d="m38 69 15 15 31-34" /></svg>
+          </div>
+          <span class="safety-callout safety-callout--one">LOW VOLTAGE</span>
+          <span class="safety-callout safety-callout--two">STOP OPERATOR</span>
+          <span class="safety-callout safety-callout--three">SUPPORTED TRIALS</span>
+        </div>
+        <div class="safety-copy">
+          <p class="section-label section-label--light">Experience needs guardrails</p>
+          <h2 id="safety-title">Safe testing is part of the lesson.</h2>
+          <p>Learners do not simply use hardware. They learn when to stop, inspect, isolate a fault and verify a safer next step. Higher-energy systems begin only after practical readiness checks.</p>
+          <ul class="safety-list">
+            <li><span>01</span><div><strong>Approved low-voltage systems</strong><small>No mains projects, exposed shorts or unsupervised high-energy batteries.</small></div></li>
+            <li><span>02</span><div><strong>Power-off rewiring & safe-stop practice</strong><small>Every powered floor run has a clear test area and a designated STOP role.</small></div></li>
+            <li><span>03</span><div><strong>Readiness-gated humanoid work</strong><small>Simulation → joint rig → supported leg → supported stance → assisted steps.</small></div></li>
+          </ul>
+          <p class="safety-truth"><strong>Claims must match evidence.</strong> Illustrations teach concepts; approved kit instructions and instructor checks govern real hardware.</p>
+        </div>
+      </section>
+
+      <section class="curriculum section" id="curriculum" aria-labelledby="curriculum-title">
+        <div class="curriculum-intro">
+          <div>
+            <p class="section-label">Curriculum by entry category</p>
+            <h2 id="curriculum-title">Two categories.<br /><span>120 connected lessons.</span></h2>
+          </div>
+          <p>Foundation covers Sessions 1–36. Advanced is one continuous programme across Applied, Competition and Humanoid phases in Sessions 37–120.</p>
+        </div>
+        <div class="curriculum-filter" role="tablist" aria-label="Filter curriculum by entry category" data-curriculum-filter>
+          <button type="button" class="is-active" data-filter="foundation" role="tab" aria-selected="true">Foundation <span>12</span></button>
+          <button type="button" data-filter="advanced" role="tab" aria-selected="false">Advanced <span>14</span></button>
+        </div>
+        <p class="curriculum-scope-note">Applied, Competition and Humanoid labels below describe internal Advanced phases; they are not separate admission choices.</p>
+        <div class="module-list" data-module-list></div>
+      </section>
+
+      <section class="faq section" aria-labelledby="faq-title">
+        <div class="faq-heading">
+          <p class="section-label">Questions thoughtful families ask</p>
+          <h2 id="faq-title">Clear answers,<br /><span>before you decide.</span></h2>
+          <p>Call or message us to confirm fees, batch dates and the most suitable class mode.</p>
+        </div>
+        <div class="faq-list" data-faq-list>
+          <article class="faq-item is-open">
+            <button type="button" aria-expanded="true"><span>What does experience-first learning mean in class?</span><i></i></button>
+            <div class="faq-answer"><p>We begin with something learners can observe or manipulate—not a definition. They predict, test one variable and discuss the result before the instructor introduces the technical concept or code behind it.</p></div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false"><span>Can a learner join Applied, Competition or Humanoid directly?</span><i></i></button>
+            <div class="faq-answer" hidden><p>No. Admission is only to Foundation or, after an eligibility review, to Advanced. Applied, Competition and Humanoid are sequential phases inside the continuous Advanced programme, with progression decided by practical evidence and safety readiness.</p></div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false"><span>Does a beginner need coding experience?</span><i></i></button>
+            <div class="faq-answer" hidden><p>No for Foundation. The course starts with movement, physical command cards, mechanisms and safe experiments before code becomes the tool. Advanced entry requires demonstrated prerequisites and a readiness review.</p></div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false"><span>Will every learner build a humanoid?</span><i></i></button>
+            <div class="faq-answer" hidden><p>No. Humanoid Engineering is the final readiness-gated phase inside Advanced. A small 12–18 DOF biped is a project target for appropriately prepared teams, not a guaranteed result of attendance.</p></div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false"><span>Is this mainly screen time?</span><i></i></button>
+            <div class="faq-answer" hidden><p>No. The method begins with physical phenomena, prediction and hands-on tests. Coding is introduced as one way to control and explain a real system.</p></div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false"><span>How is progress assessed?</span><i></i></button>
+            <div class="faq-answer" hidden><p>Through practical evidence: a prediction, a test or program trace, a revision, a causal explanation and safe teamwork. Foundation includes six readiness milestones and a practical showcase gate.</p></div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false"><span>What hardware will learners use?</span><i></i></button>
+            <div class="faq-answer" hidden><p>The curriculum supports age-appropriate classroom kits and a budget-sensitive shared-hardware track. Exact platforms, availability and advanced facilities must be confirmed with the academy.</p></div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false"><span>Are online classes available?</span><i></i></button>
+            <div class="faq-answer" hidden><p>Yes. WhyWorksLab offers online classes as well as in-centre learning. Hardware or home-kit requirements are confirmed for the learner’s recommended entry category and batch.</p></div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false"><span>Is the course accredited?</span><i></i></button>
+            <div class="faq-answer" hidden><p>The supplied curriculum describes an internal coherence audit, not independent accreditation. Ask the academy directly about any certificate or recognition offered for a specific batch.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="conversion section" id="contact" aria-labelledby="enquiry-title">
+        <div class="conversion-copy">
+          <p class="section-label section-label--light">Start with a conversation</p>
+          <h2 id="enquiry-title">Let’s plan the right first experience.</h2>
+          <p>Tell us the learner’s stage, preferred entry category and class mode. We’ll help confirm whether Foundation or an Advanced readiness review is the suitable starting point.</p>
+          <div class="contact-actions">
+            <a class="contact-action contact-action--call" href="tel:997769844">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3h3l1.5 5-2 1.5a15 15 0 0 0 5 5L16 12l5 1.5v3c0 2-1.5 3.5-3.5 3.5C10 20 4 14 4 6.5 4 4.5 5 3 7 3Z" /></svg>
+              <span><small>Call us directly</small><strong>997769844</strong></span>
+            </a>
+            <a class="contact-action contact-action--whatsapp" href="https://wa.me/91997769844?text=Hello%20WhyWorksLab%2C%20I%20would%20like%20to%20find%20the%20right%20first%20robotics%20experience%20for%20a%20learner." target="_blank" rel="noopener noreferrer" aria-label="Chat with WhyWorksLab on WhatsApp, opens in a new tab">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.5Z" /><path d="M9 8.5c.4 2.5 2 4.1 4.5 5l1.2-1.2 2 .8c-.2 1.6-1.3 2.4-2.6 2.4-3.2 0-6.6-3.4-6.6-6.6 0-1.3.8-2.4 2.4-2.6l.8 2L9 8.5Z" /></svg>
+              <span><small>Quick response</small><strong>Chat on WhatsApp</strong></span>
+            </a>
+          </div>
+          <div class="class-mode-badges" aria-label="Class modes">
+            <span><i></i> In-centre classes</span>
+            <span><i></i> Online classes available</span>
+          </div>
+        </div>
+        <form class="enquiry-form" data-enquiry-form>
+          <label>
+            <span>I am enquiring as</span>
+            <select name="role" required>
+              <option value="">Choose one</option>
+              <option>Parent or guardian</option>
+              <option>Student</option>
+              <option>School or educator</option>
+              <option>Advanced team</option>
+            </select>
+          </label>
+          <label>
+            <span>Learner stage</span>
+            <select name="stage" required>
+              <option value="">Choose one</option>
+              <option>Classes 3–4</option>
+              <option>Classes 5–6</option>
+              <option>Classes 7–9</option>
+              <option>Secondary / college / adult team</option>
+            </select>
+          </label>
+          <fieldset>
+            <legend>Entry category to discuss</legend>
+            <div class="interest-pills">
+              <label><input type="radio" name="category" value="Foundation" required /><span>Foundation</span></label>
+              <label><input type="radio" name="category" value="Advanced readiness review" /><span>Advanced readiness review</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Preferred class mode</legend>
+            <div class="interest-pills">
+              <label><input type="radio" name="mode" value="In-centre classes" required /><span>In-centre</span></label>
+              <label><input type="radio" name="mode" value="Online classes" /><span>Online</span></label>
+              <label><input type="radio" name="mode" value="Not sure about class mode yet" /><span>Not sure yet</span></label>
+            </div>
+          </fieldset>
+          <button class="button button--form" type="submit">Prepare WhatsApp message <span>→</span></button>
+          <p class="form-note">Nothing is sent until you choose WhatsApp. Your selections stay in this browser.</p>
+          <div class="enquiry-output" data-enquiry-output hidden aria-live="polite">
+            <div class="enquiry-output__head"><strong>Your enquiry message</strong><button type="button" data-copy-enquiry>Copy</button></div>
+            <p data-enquiry-text></p>
+            <a class="send-whatsapp" data-send-whatsapp href="https://wa.me/91997769844" target="_blank" rel="noopener noreferrer">Send on WhatsApp <span>↗</span></a>
+            <small data-copy-status></small>
+          </div>
+        </form>
+      </section>
+
+      <section class="visit section" id="location" aria-labelledby="visit-title">
+        <div class="visit__details">
+          <p class="section-label">Visit or join online</p>
+          <h2 id="visit-title">Learn with us in Tambaram—or from home.</h2>
+          <p>In-centre and online classes are available. For online batches, we will confirm any hardware or home-kit requirements before enrolment.</p>
+          <div class="visit__mode-grid">
+            <article><span>01</span><div><strong>In-centre</strong><small>Hands-on learning at our Gowriwakkam location.</small></div></article>
+            <article><span>02</span><div><strong>Online</strong><small>Live remote classes with batch-specific kit guidance.</small></div></article>
+          </div>
+          <address>
+            <span>WhyWorksLab Robotics Academy</span>
+            2, Vembuliamman Koil St,<br />
+            Gowriwakkam, Sembakkam,<br />
+            Tambaram, Tamil Nadu 600073
+          </address>
+          <div class="visit__links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=2%2C%20Vembuliamman%20Koil%20St%2C%20Gowriwakkam%2C%20Sembakkam%2C%20Tambaram%2C%20Tamil%20Nadu%20600073" target="_blank" rel="noopener noreferrer">Get directions <span>↗</span></a>
+            <a href="tel:997769844">Call 997769844</a>
+          </div>
+        </div>
+        <div class="visit__map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d300.9641548677205!2d80.16768850307564!3d12.920657746903194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1793185039435!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Map showing the WhyWorksLab class location in Gowriwakkam"></iframe>
+          <p>Map pin supplied for the academy location.</p>
+        </div>
+      </section>
+    </main>
+
+    <a class="floating-whatsapp" href="https://wa.me/91997769844?text=Hello%20WhyWorksLab%2C%20I%20would%20like%20to%20find%20the%20right%20first%20robotics%20experience%20for%20a%20learner." target="_blank" rel="noopener noreferrer" aria-label="Chat with WhyWorksLab on WhatsApp, opens in a new tab">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.5Z" /><path d="M9 8.5c.4 2.5 2 4.1 4.5 5l1.2-1.2 2 .8c-.2 1.6-1.3 2.4-2.6 2.4-3.2 0-6.6-3.4-6.6-6.6 0-1.3.8-2.4 2.4-2.6l.8 2L9 8.5Z" /></svg>
+      <span>WhatsApp</span>
+    </a>
+
+    <footer class="footer">
+      <div class="footer__brand">
+        <img src="assets/whyworkslab-logo.png" alt="WhyWorksLab Robotics & Science" />
+        <p>Experience the problem. Predict what happens. Test it. Then discover why it works.</p>
+      </div>
+      <div class="footer__links">
+        <div><strong>Explore</strong><a href="#pathway">Learning pathway</a><a href="#curriculum">26 modules</a><a href="#safety">Safety approach</a></div>
+        <div><strong>Contact</strong><a href="tel:997769844">Call 997769844</a><a href="#contact">WhatsApp enquiry</a><a href="#location">Location & online classes</a></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year></span> WhyWorksLab Robotics Academy</span>
+        <span>In-centre and online classes · Gowriwakkam, Tambaram</span>
+      </div>
+    </footer>
+  </body>
+</html>
