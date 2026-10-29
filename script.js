@@ -216,6 +216,37 @@
     resetRobot({ clearPrediction: true });
   }
 
+  // Classroom story image reveals
+  const beliefCards = $$('[data-belief-card]');
+  if (beliefCards.length) {
+    const setBeliefCardState = (card, expanded) => {
+      const toggle = $('[data-belief-toggle]', card);
+      const label = $('[data-belief-toggle-label]', toggle);
+      card.classList.toggle('is-revealed', expanded);
+      toggle.setAttribute('aria-expanded', String(expanded));
+      label.textContent = expanded ? 'Close class moment' : 'See class moment';
+    };
+
+    beliefCards.forEach((card) => {
+      const toggle = $('[data-belief-toggle]', card);
+      toggle.addEventListener('click', () => {
+        const willExpand = !card.classList.contains('is-revealed');
+        if (willExpand) {
+          beliefCards.forEach((other) => {
+            if (other !== card) setBeliefCardState(other, false);
+          });
+        }
+        setBeliefCardState(card, willExpand);
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || !card.classList.contains('is-revealed')) return;
+        setBeliefCardState(card, false);
+        toggle.focus();
+      });
+    });
+  }
+
   // Entry-level finder
   const finder = $("[data-finder]");
   const finderData = {
@@ -243,15 +274,30 @@
     const resultCopy = $("[data-result-copy]", result);
     const resultLink = $("[data-result-link]", result);
 
-    options.forEach((option) => {
-      option.addEventListener("click", () => {
-        options.forEach((item) => item.setAttribute("aria-checked", String(item === option)));
-        const recommendation = finderData[option.dataset.level];
-        resultLevel.textContent = recommendation.level;
-        resultTitle.textContent = recommendation.title;
-        resultCopy.textContent = recommendation.copy;
-        resultLink.dataset.openPath = recommendation.path;
-        result.hidden = false;
+    const selectEntryCategory = (option) => {
+      options.forEach((item) => {
+        const active = item === option;
+        item.setAttribute("aria-checked", String(active));
+        item.tabIndex = active ? 0 : -1;
+      });
+      const recommendation = finderData[option.dataset.level];
+      resultLevel.textContent = recommendation.level;
+      resultTitle.textContent = recommendation.title;
+      resultCopy.textContent = recommendation.copy;
+      resultLink.dataset.openPath = recommendation.path;
+      result.hidden = false;
+    };
+
+    options.forEach((option, index) => {
+      option.tabIndex = index === 0 ? 0 : -1;
+      option.addEventListener("click", () => selectEntryCategory(option));
+      option.addEventListener("keydown", (event) => {
+        if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
+        event.preventDefault();
+        const direction = ["ArrowRight", "ArrowDown"].includes(event.key) ? 1 : -1;
+        const next = (index + direction + options.length) % options.length;
+        selectEntryCategory(options[next]);
+        options[next].focus();
       });
     });
 
@@ -415,10 +461,10 @@
   ];
 
   const levelLabels = {
-    foundation: "Level 1 · Foundation",
-    applied: "Level 2 · Applied",
-    competition: "Level 3 · Competition",
-    humanoid: "Level 4 · Humanoid",
+    foundation: "Foundation · Level 1",
+    applied: "Advanced · Phase 1 · Applied",
+    competition: "Advanced · Phase 2 · Competition",
+    humanoid: "Advanced · Phase 3 · Humanoid",
   };
 
   const moduleList = $("[data-module-list]");
@@ -443,13 +489,25 @@
         const active = item.dataset.filter === filter;
         item.classList.toggle("is-active", active);
         item.setAttribute("aria-selected", String(active));
+        item.tabIndex = active ? 0 : -1;
       });
       $$(".module-item", moduleList).forEach((item) => {
-        item.hidden = filter !== "all" && item.dataset.level !== filter;
+        const visible = filter === "advanced"
+          ? item.dataset.level !== "foundation"
+          : item.dataset.level === filter;
+        item.hidden = !visible;
       });
     };
-    filterButtons.forEach((button) => {
+    filterButtons.forEach((button, index) => {
       button.addEventListener("click", () => applyCurriculumFilter(button.dataset.filter));
+      button.addEventListener("keydown", (event) => {
+        if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
+        event.preventDefault();
+        const direction = ["ArrowRight", "ArrowDown"].includes(event.key) ? 1 : -1;
+        const next = (index + direction + filterButtons.length) % filterButtons.length;
+        applyCurriculumFilter(filterButtons[next].dataset.filter);
+        filterButtons[next].focus();
+      });
     });
     applyCurriculumFilter("foundation");
   }
@@ -487,24 +545,18 @@
     const whatsAppNumber = "91997769844";
     let preparedText = "";
 
-    const entrySuggestion = (stage, interest) => {
-      if (stage.includes("3–4")) return "Foundation Robotics with the tactile, prewired pathway";
-      if (stage.includes("5–6")) return "Foundation Robotics with models, sensors and block coding";
-      if (stage.includes("7–9")) return interest.includes("Humanoid") || interest.includes("Competition")
-        ? "a Foundation readiness check, followed by the suitable advanced level"
-        : "Foundation Robotics at the measured engineering depth";
-      return "an advanced readiness review before selecting Applied, Competition or Humanoid Engineering";
-    };
+    const entryContext = (category) => category === "Advanced readiness review"
+      ? "We understand that Applied, Competition and Humanoid are sequential internal phases within Advanced, and that WhyWorksLab decides progression after practical evidence and safety checks."
+      : "We understand that Foundation teaching is adapted to the learner's age, experience and readiness.";
 
     enquiryForm.addEventListener("submit", (event) => {
       event.preventDefault();
       const formData = new FormData(enquiryForm);
       const role = formData.get("role");
       const stage = formData.get("stage");
-      const interest = formData.get("interest");
+      const category = formData.get("category");
       const mode = formData.get("mode");
-      const suggestion = entrySuggestion(stage, interest);
-      preparedText = `Hello WhyWorksLab, I am enquiring as a ${String(role).toLowerCase()} for a learner/team at the ${stage} stage. We are most interested in ${String(interest).toLowerCase()} and prefer ${String(mode).toLowerCase()}. Based on the published pathway, we would like to discuss ${suggestion}. Please share the available batch, fees, schedule, hardware or kit requirements, the practical readiness check, and what the first hands-on learning experience will involve.`;
+      preparedText = `Hello WhyWorksLab, I am enquiring as a ${String(role).toLowerCase()} for a learner/team at the ${stage} stage. We would like to discuss ${category} and prefer ${String(mode).toLowerCase()}. ${entryContext(category)} Please share the available batch, fees, schedule, hardware or kit requirements, the entry process, and what the first hands-on learning experience will involve.`;
       outputText.textContent = preparedText;
       sendWhatsApp.href = `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(preparedText)}`;
       output.hidden = false;
